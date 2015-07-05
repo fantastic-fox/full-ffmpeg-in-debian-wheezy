@@ -36,9 +36,9 @@ make distclean
 
 apt-get -y install unzip
 cd ~/ffmpeg_sources
-wget --no-check-certificate -O fdk-aac.zip https://github.com/mstorsjo/fdk-aac/archive/v0.1.4.zip
-unzip fdk-aac.zip
-cd mstorsjo-fdk-aac*
+wget --no-check-certificate -O fdk-aac-0.1.4.zip https://github.com/mstorsjo/fdk-aac/archive/v0.1.4.zip
+unzip fdk-aac-0.1.4.zip
+cd fdk-aac-0.1.4
 autoreconf -fiv
 ./configure --disable-shared
 #./configure --prefix="$HOME/ffmpeg_build" --disable-shared
@@ -57,9 +57,9 @@ make install
 make distclean
 
 cd ~/ffmpeg_sources
-wget --no-check-certificate -O libvpx.zip https://github.com/webmproject/libvpx/archive/v1.4.0.zip
-unzip libvpx.zip
-cd libvpx
+wget --no-check-certificate -O libvpx-1.4.0.zip https://github.com/webmproject/libvpx/archive/v1.4.0.zip
+unzip libvpx-1.4.0.zip
+cd libvpx-1.4.0
 ./configure --disable-examples
 #./configure --prefix="$HOME/ffmpeg_build" --disable-examples
 make
@@ -67,9 +67,9 @@ make install
 make clean
 
 cd ~/ffmpeg_sources
-wget -O ffmpeg.tar.bz2 http://ffmpeg.org/releases/ffmpeg-2.7.1.tar.bz2
-tar xjvf ffmpeg.tar.bz2
-cd ffmpeg
+wget http://ffmpeg.org/releases/ffmpeg-2.7.1.tar.bz2
+tar xjvf ffmpeg-2.7.1.tar.bz2
+cd ffmpeg-2.7.1
 #PATH="$PATH:$HOME/bin" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure \
   # --prefix="$HOME/ffmpeg_build" \
   #--extra-cflags="-I$HOME/ffmpeg_build/include" \
@@ -99,7 +99,7 @@ make distclean
 hash -r
 
 echo "# To install ffmpeg:"
-echo "dpkg -i ffmpeg_2.7.1-1_amd64.deb"
+echo "dpkg --install ffmpeg_2.7.1-1_amd64.deb"
 echo "# Now you might get an error message about dependency problems / missing dependencies:"
 echo "# If so, to install the missing dependencies:"
 echo "apt-get -f install"
