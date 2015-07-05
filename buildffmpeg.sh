@@ -24,8 +24,8 @@ make install
 make distclean
 
 cd ~/ffmpeg_sources
-wget http://download.videolan.org/pub/x264/snapshots/last_x264.tar.bz2
-tar xjvf last_x264.tar.bz2
+wget http://download.videolan.org/pub/x264/snapshots/last_stable_x264.tar.bz2
+tar xjvf last_stable_x264.tar.bz2
 cd x264-snapshot*
 ./configure --enable-static --disable-opencl
 #PATH="$PATH:$HOME/bin" ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin" --enable-static --disable-opencl
@@ -36,7 +36,7 @@ make distclean
 
 apt-get -y install unzip
 cd ~/ffmpeg_sources
-wget --no-check-certificate -O fdk-aac.zip https://github.com/mstorsjo/fdk-aac/zipball/master
+wget --no-check-certificate -O fdk-aac.zip https://github.com/mstorsjo/fdk-aac/archive/v0.1.4.zip
 unzip fdk-aac.zip
 cd mstorsjo-fdk-aac*
 autoreconf -fiv
@@ -57,9 +57,9 @@ make install
 make distclean
 
 cd ~/ffmpeg_sources
-wget http://webm.googlecode.com/files/libvpx-v1.3.0.tar.bz2
-tar xjvf libvpx-v1.3.0.tar.bz2
-cd libvpx-v1.3.0
+wget --no-check-certificate -O libvpx.zip https://github.com/webmproject/libvpx/archive/v1.4.0.zip
+unzip libvpx.zip
+cd libvpx
 ./configure --disable-examples
 #./configure --prefix="$HOME/ffmpeg_build" --disable-examples
 make
@@ -67,8 +67,8 @@ make install
 make clean
 
 cd ~/ffmpeg_sources
-wget http://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2
-tar xjvf ffmpeg-snapshot.tar.bz2
+wget -O ffmpeg.tar.bz2 http://ffmpeg.org/releases/ffmpeg-2.7.1.tar.bz2
+tar xjvf ffmpeg.tar.bz2
 cd ffmpeg
 #PATH="$PATH:$HOME/bin" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure \
   # --prefix="$HOME/ffmpeg_build" \
@@ -91,15 +91,15 @@ cd ffmpeg
 #PATH="$PATH:$HOME/bin" make
 make
 checkinstall --install=no \
-  --pkgname=ffmpeg-snapshot \
-  --pkgversion=`date +%d.%m.%Y`.snapshot \
+  --pkgname=ffmpeg \
+  --pkgversion=2.7.1 \
   --requires="libass-dev,libfreetype6-dev,libgpac-dev,libsdl1.2-dev,libtheora-dev,libtool,libva-dev,libvdpau-dev,libvorbis-dev,libx11-dev,libxext-dev,libxfixes-dev,texi2html,zlib1g-dev,libass-dev,libmp3lame-dev"  \
   -y make install
 make distclean
 hash -r
 
 echo "# To install ffmpeg:"
-echo "dpkg -i ffmpeg-snapshot_*.snapshot-1_amd64.deb"
+echo "dpkg -i ffmpeg_2.7.1-1_amd64.deb"
 echo "# Now you might get an error message about dependency problems / missing dependencies:"
 echo "# If so, to install the missing dependencies:"
 echo "apt-get -f install"
