@@ -9,12 +9,12 @@ Build, create .deb &amp; install full ffmpeg in debian wheezy - optionally using
 	
 .deb file location:
 
-	~/ffmpeg_sources/ffmpeg/ffmpeg_2.7.1-1_amd64.deb
+	~/ffmpeg_sources/ffmpeg/ffmpeg_2.7.2-1_amd64.deb
 
 To install:
 
 	# install ffmpeg
-	dpkg --install ffmpeg_2.7.1-1_amd64.deb
+	dpkg --install ffmpeg_2.7.2-1_amd64.deb
 	# install missing dependencies
 	apt-get update
 	apt-get -f install

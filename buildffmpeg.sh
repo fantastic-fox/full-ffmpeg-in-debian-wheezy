@@ -67,9 +67,9 @@ make install
 make clean
 
 cd ~/ffmpeg_sources
-wget http://ffmpeg.org/releases/ffmpeg-2.7.1.tar.bz2
-tar xjvf ffmpeg-2.7.1.tar.bz2
-cd ffmpeg-2.7.1
+wget http://ffmpeg.org/releases/ffmpeg-2.7.2.tar.bz2
+tar xjvf ffmpeg-2.7.2.tar.bz2
+cd ffmpeg-2.7.2
 #PATH="$PATH:$HOME/bin" PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure \
   # --prefix="$HOME/ffmpeg_build" \
   #--extra-cflags="-I$HOME/ffmpeg_build/include" \
@@ -92,14 +92,14 @@ cd ffmpeg-2.7.1
 make
 checkinstall --install=no \
   --pkgname=ffmpeg \
-  --pkgversion=2.7.1 \
+  --pkgversion=2.7.2 \
   --requires="libass-dev,libfreetype6-dev,libgpac-dev,libsdl1.2-dev,libtheora-dev,libtool,libva-dev,libvdpau-dev,libvorbis-dev,libx11-dev,libxext-dev,libxfixes-dev,texi2html,zlib1g-dev,libass-dev,libmp3lame-dev"  \
   -y make install
 make distclean
 hash -r
 
 echo "# To install ffmpeg:"
-echo "dpkg --install ffmpeg_2.7.1-1_amd64.deb"
+echo "dpkg --install ffmpeg_2.7.2-1_amd64.deb"
 echo "# Now you might get an error message about dependency problems / missing dependencies:"
 echo "# If so, to install the missing dependencies:"
 echo "apt-get -f install"
